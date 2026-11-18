@@ -1,0 +1,22 @@
+# MixTape
+
+Zero-storage music streaming player (Flask + yt-dlp + YouTube Music metadata).
+
+Run: `pip install -r requirements.txt` then `python app.py`.
+
+- Liquid-glass UI, light / dark / AMOLED themes, colours that follow the playing song's cover
+- Feed, Stats and Library tabs; account button opens Settings
+- Queue (drag to reorder, played songs clear, play next, optional autoplay), custom playlists
+- Liked songs and custom playlists persist in the project `data` directory, regardless of the launch directory
+- Synced lyrics (lrclib.net) with estimated word highlighting and a shareable lyrics card
+- Two playback engines (Settings → Audio & playback): **YouTube iframe** (default) plays through a live YouTube player kept rendered behind the artwork, so only the cover is visible while the iframe keeps the audio going; **Direct stream** (Opus via yt-dlp) supports EQ and quality. A song that can't be embedded automatically falls back to Direct stream
+- Opus streaming with quality control, EQ, speed, fade between songs
+- Import Spotify / YouTube Music playlists by link (Settings)
+- Optional env var: `YTM_LOCATION` (two-letter country code, default IN) for regional suggestions
+
+## Lyrics sources
+Pick one in Settings → Lyrics (or tap the badge on the lyrics screen). Sources: BetterLyrics, LyricsPlus,
+Apple Music (Paxsenix), NetEase, Karalyr, LRCLIB, YouTube Music, SimpMusic, KuGou.
+Optional env vars: `KARALYR_URL` (enables Karalyr), `LYRICSPLUS_URLS` (comma-separated mirrors).
+
+The lyrics view animates word timing with `requestAnimationFrame`, supports line/word click-to-seek, duet sides (`side: "left"` / `"right"`), nested `background` vocals, and instrumental breaks (`type: "instrumental"`). See [static/lyrics-sample.json](./static/lyrics-sample.json) for the JSON shape.
