@@ -1,5 +1,0 @@
-Flask>=3.0.0
-ytmdl>=2024.8.15.1   # audio downloader (also installs yt-dlp as its own dependency); needs ffmpeg on PATH
-requests>=2.31.0
-gunicorn>=22.0.0
-ytmusicapi>=1.8.0
