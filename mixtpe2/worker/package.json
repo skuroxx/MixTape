@@ -1,0 +1,8 @@
+{
+  "name": "mixtape-stream-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker that resolves and proxies YouTube audio for MixTape",
+  "scripts": { "deploy": "wrangler deploy", "dev": "wrangler dev" },
+  "dependencies": { "@distube/ytdl-core": "^5.2.1" }
+}
